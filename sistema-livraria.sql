@@ -39,6 +39,20 @@ SELECT c.nomeCliente, c.emailCliente, co.NomeLivro
 FROM Clientes c
 JOIN Compras co ON c.ID = co.ClienteID;
 
+================================================================================================================
+
+    -- Ative chaves estrangeiras (SQLite)
+PRAGMA foreign_keys = ON;
+
+-- Consulta que retorna nome do cliente e nome do livro para todas as compras
+SELECT
+  c.nomeCliente AS Cliente,
+  co.NomeLivro  AS Livro
+FROM Compras co
+INNER JOIN Clientes c
+  ON co.ClienteID = c.ID
+ORDER BY co.CompraID;
+
 
 SELECT * FROM Clientes; 
 SELECT * FROM Compras; 
